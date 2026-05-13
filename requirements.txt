@@ -1,0 +1,5 @@
+openai>=2.36.0
+matplotlib>=3.10.9
+matplotlib-venn>=1.1.2
+numpy>=2.4.4
+pdfplumber>=0.11.9

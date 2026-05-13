@@ -22,31 +22,43 @@ def analizar_con_ia(top1, top2, n):
     Tengo frecuencias de palabras de dos documentos.
     
     Documento 1: {top1}
-    
     Documento 2: {top2}
-    
+
     Tareas:
     1. Elimina palabras irrelevantes
     2. Agrupa palabras similares
-    3. Devuelve:
+    3. Identifica el tema principal de cada documento
+    4. Identifica el tema en común entre ambos documentos (si existe)
+
+    Devuelve:
+
     - Top {n} palabras Documento 1 con frecuencia
     - Top {n} palabras Documento 2 con frecuencia
     - Top {n} palabras en común con frecuencia en cada documento
-    
+
+    Además agrega:
+
+    - tema_pdf1: breve descripción del tema del documento 1
+    - tema_pdf2: breve descripción del tema del documento 2
+    - tema_comun: tema que conecta ambos documentos (si no existe, escribe "No hay tema común claro")
+
     Formato JSON:
     {{
         "pdf1": [{{"palabra": "...", "frecuencia": n}}],
-        "pdf22": [{{"palabra": "...", "frecuencia": n}}],
+        "pdf2": [{{"palabra": "...", "frecuencia": n}}],
         "comunes": [
-        {{
-            "palabra": "...",
-            "frecuencia_doc1": n,
-            "frecuencia_doc2": n,
-            "total": n
+            {{
+                "palabra": "...",
+                "frecuencia_doc1": n,
+                "frecuencia_doc2": n,
+                "total": n
             }}
-            ]
+        ],
+        "tema_pdf1": "...",
+        "tema_pdf2": "...",
+        "tema_comun": "..."
     }}
-"""
+    """
 
     response = cliente.responses.create(
         model="gpt-5-mini",
